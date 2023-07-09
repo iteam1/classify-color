@@ -18,7 +18,7 @@ def create_colorbar(label,center):
 
     pixel_labels = list(label.flatten())
     num_cluster = len(set(pixel_labels))
-    print('num_cluster:',num_cluster)
+    # print('num_cluster:',num_cluster)
 
     value_dict = {}
     pixel_counts = []
