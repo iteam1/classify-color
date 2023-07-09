@@ -66,7 +66,7 @@ Z = np.float32(Z)
 # define criteria, number of clusters and apply kmeans
 criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
 
-# kmean
+# kmeans
 ret, label, center = cv2.kmeans(Z, NUM_CLUSTER, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
 # parsing color
 colorbar = create_colorbar(label,center)
