@@ -1,0 +1,13 @@
+
+__pycache__
+env
+.vscode
+.ipynb_checkpoints
+
+# folders
+data
+
+# compressed files
+*.tar
+*.rar
+*.zip
