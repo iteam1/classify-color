@@ -1,11 +1,8 @@
 
-__pycache__
 env
 .vscode
+__pycache__
 .ipynb_checkpoints
-
-# folders
-data
 
 # compressed files
 *.tar
