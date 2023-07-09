@@ -85,6 +85,7 @@ def post_proces(res):
 
     return pred
 
+
 if __name__ == "__main__":
     # read the image
     img = cv2.imread(IMG_PATH)
