@@ -1,17 +1,24 @@
 '''
-python3 classify_color.py data/black.jpg
+python3 batch_test.py data
 '''
 import os
 import sys
 import cv2
 import numpy as np
 
-IMG_PATH = sys.argv[1] # image path
+IMGS_PATH = sys.argv[1] # image path
 NUM_CLUSTER = 5 # number of cluster
-THRESH = 0.8
+
 COLOR_CLASSES = {(255,0,0):'Red',
 (0,0,0):'Black',
-(255,255,255):'White'}
+(255,255,255):'White',
+(0,255,0):'Green',}
+
+# custom threshold
+THRESH_CLASSES ={'Red':0.4,
+                 'Black':0.6,
+                 'White':0.6,
+                 'Green':0.4}
 
 def classify_dominant(img):
     '''
@@ -62,6 +69,7 @@ def post_proces(res):
 
     inv_map = {v: k for k, v in COLOR_CLASSES.items()}
     labels = list(inv_map)
+    # print(labels)
 
     for label in labels:
         out[label] = 0.0
@@ -73,27 +81,31 @@ def post_proces(res):
         label = current_color['label']
         value = current_color['percent']
         out[label] += value
-
+        
     print(out)
-
-    inv_value = {v: k for k, v in out.items()}
-    values = list(inv_value.keys())
-    sorted_values = sorted(values)
-
-    if sorted_values[-1] > THRESH:
-        pred = inv_value[sorted_values[-1]]
+    
+    # predict
+    for label in labels:
+        current_thresh = THRESH_CLASSES[label]
+        percent_value = out[label]
+        if percent_value >= current_thresh:
+            pred = label
+            break
 
     return pred
 
-
 if __name__ == "__main__":
-    # read the image
-    img = cv2.imread(IMG_PATH)
+    
+    imgs = os.listdir(IMGS_PATH)
+    
+    for i,img_name in enumerate(imgs):
+        # read the image
+        img = cv2.imread(os.path.join(IMGS_PATH,img_name))
 
-    # parsing
-    res = classify_dominant(img)
+        # parsing
+        res = classify_dominant(img)
 
-    # post process
-    pred = post_proces(res)
+        # post process
+        pred = post_proces(res)
 
-    print('Prediction:',pred)
+        print(i,img_name,'Prediction:',pred)
