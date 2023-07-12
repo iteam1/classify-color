@@ -1,10 +1,11 @@
 '''
-python3 utils/hsv_tool.py data/plallete.png
+HSV parser
+Support function horizontal stack same size image
+CMD: python3 utils/hsv_tool.py data/color10/red/B07B2524BDBC15062023134749_0_side_2_1_square_1024.jpg
 '''
-
-import numpy as np
 import cv2
 import sys
+import numpy as np
 
 def empty(i):
     pass
@@ -33,16 +34,9 @@ def on_trackbar(val):
     cv2.imshow("HSV",resized)
 
 # read input the images
-img_paths = sys.argv[1:] # the argument after program's name
-print(f"Reading {len(img_paths)} images")
-imgs = [] # list of input image
-for img_path in img_paths:
-    img = cv2.imread(img_path)
-    imgs.append(img)
-
-# stack the images
-img = cv2.hconcat(imgs)
-
+img_path = sys.argv[1]
+img = cv2.imread(img_path)
+    
 # convert to hsv space
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
@@ -64,5 +58,4 @@ on_trackbar(0)
 # wait until user press any key
 k = cv2.waitKey()
 
-#destroy All Windows
 cv2.destroyAllWindows()

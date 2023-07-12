@@ -1,5 +1,5 @@
 '''
-python3 utils/dominant_color.py data/black.jpg
+python3 utils/dominant_color.py data/color10/red/B07B2524BDBC15062023134749_0_side_2_1_square_1024.jpg
 '''
 import os
 import sys
@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 
 IMG_PATH = sys.argv[1] # image path
-NUM_CLUSTER = 3 # number of cluster
+NUM_CLUSTER = 5 # number of cluster
 
 def create_colorbar(label,center):
     '''
@@ -58,6 +58,7 @@ def create_colorbar(label,center):
 
 # read the image
 img = cv2.imread(IMG_PATH)
+img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
 # reshape the image
 Z = img.reshape((-1,3))
 # convert to np.float32
