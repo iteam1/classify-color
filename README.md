@@ -4,6 +4,8 @@ predict color name from RGB value: `python3 classify_color.py data/black.jpg`
 
 # references
 
+https://programmingdesignsystems.com/color/color-models-and-color-spaces/index.html
+
 https://github.com/SKsaqlain/Vehicle-Detection-And-Color-Classification
 
 https://github.com/michtesar/color_recognizer
