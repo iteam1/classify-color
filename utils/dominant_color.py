@@ -1,5 +1,5 @@
 '''
-python3 utils/dominant_color.py data/color10/red/B07B2524BDBC15062023134749_0_side_2_1_square_1024.jpg
+python3 utils/dominant_color.py assets/black.jpg
 '''
 import os
 import sys
@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 
 IMG_PATH = sys.argv[1] # image path
-NUM_CLUSTER = 5 # number of cluster
+NUM_CLUSTER = 3 # number of cluster
 
 def create_colorbar(label,center):
     '''
@@ -79,7 +79,7 @@ res = res.reshape(img.shape)
 res = np.hstack([img,res])
 
 # display
-cv2.imshow('res',res)
-cv2.imshow('colorbar',colorbar)
+cv2.imshow('res',cv2.cvtColor(res,cv2.COLOR_RGB2BGR))
+cv2.imshow('colorbar',cv2.cvtColor(colorbar,cv2.COLOR_RGB2BGR))
 k = cv2.waitKey()
 cv2.destroyAllWindows()
