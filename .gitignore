@@ -10,4 +10,4 @@ __pycache__
 *.zip
 
 #folders
-debug
+DATASET
