@@ -6,6 +6,8 @@ predict color name from RGB value: `python3 classify_color.py data/black.jpg`
 
 http://www.rgbtool.com/
 
+https://stackoverflow.com/questions/34488409/improving-accuracy-of-findcontour-in-opencv-python
+
 https://programmingdesignsystems.com/color/color-models-and-color-spaces/index.html
 
 https://github.com/SKsaqlain/Vehicle-Detection-And-Color-Classification
