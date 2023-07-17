@@ -24,7 +24,7 @@ def preprocess(im):
             if mask[i,j]:
                 pixels.append(im[i,j])
     
-    print(idx,' total pixels:',H*W,'nonzero pixels:',len(pixels))
+    print(' total pixels:',H*W,'nonzero pixels:',len(pixels))
     
     # convert to np.float32
     Z = np.float32(np.array(pixels))

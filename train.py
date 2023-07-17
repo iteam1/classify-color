@@ -4,6 +4,7 @@ python3 train.py dst
 import os
 import sys
 import cv2
+import json
 import pickle
 import numpy as np
 import xgboost as xgb
@@ -22,8 +23,10 @@ colors = os.listdir(DATA_PATH)
 X = []
 y = []
 
+labels = {}
 # collect data
 for i,color in enumerate(colors):
+    labels[i] = color
     path = os.path.join(DATA_PATH,color)
     for file in os.listdir(path):
         im = cv2.imread(os.path.join(path,file))
@@ -32,6 +35,10 @@ for i,color in enumerate(colors):
         im = im.flatten()
         X.append(im)
         y.append(i)
+        
+# export labels
+with open('labels.json','w') as f:
+    json.dump(labels,f)
 
 X = np.array(X)
 y = np.array(y)
@@ -42,7 +49,7 @@ print("y: ",y.shape)
 # shuffle data
 X,y = shuffle(X,y)
 y = le.fit_transform(y)
-X_train,X_val,y_train,y_val = train_test_split(X,y,test_size=0.2,random_state=42)
+X_train,X_val,y_train,y_val = train_test_split(X,y,test_size=0.3,random_state=42)
 
 # split train val subset
 print('Training')
@@ -50,14 +57,14 @@ print('Training')
 model = xgb.XGBClassifier(max_depth=5)  #DecisionTreeClassifier(max_depth=5)
 
 model.fit(X_train, y_train)
-preds = model.predict(X_val)
+preds = model.predict(X)
 
 # accuracy on X_test
 # print("Validation report:",classification_report(y,preds))
-print('Accuracy:',accuracy_score(y_val, preds))
+print('Accuracy:',accuracy_score(y, preds))
 
 # creating a confusion matrix
-cm = confusion_matrix(y_val, preds)
+cm = confusion_matrix(y, preds)
 print(cm)
     
  # save the model to disk
