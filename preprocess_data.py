@@ -8,7 +8,7 @@ import numpy as np
 
 NUM_CLUSTER = 5 # number of cluster
 DATA_PATH = sys.argv[1]
-DIM = 240
+DIM = 128
 OUTPUT = 'dst'
 
 if not os.path.exists(OUTPUT):
