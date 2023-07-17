@@ -4,6 +4,7 @@ python3 train.py dst
 import os
 import sys
 import cv2
+import pickle
 import numpy as np
 import xgboost as xgb
 from sklearn.utils import shuffle
@@ -40,25 +41,28 @@ print("X: ",X.shape)
 print("y: ",y.shape)
 # shuffle data
 X,y = shuffle(X,y)
+y = le.fit_transform(y)
+X_train,X_val,y_train,y_val = train_test_split(X,y,test_size=0.2,random_state=42)
 
 # split train val subset
 print('Training')
-y = le.fit_transform(y)
 # xgb.XGBClassifier(n_estimators = 400, learning_rate = 0.1, max_depth = 3)
 model = xgb.XGBClassifier(max_depth=5)  #DecisionTreeClassifier(max_depth=5)
 
-model.fit(X, y)
-preds = model.predict(X)
-  
+model.fit(X_train, y_train)
+preds = model.predict(X_val)
+
 # accuracy on X_test
 # print("Validation report:",classification_report(y,preds))
-print('Accuracy:',accuracy_score(y, preds))
+print('Accuracy:',accuracy_score(y_val, preds))
 
 # creating a confusion matrix
-cm = confusion_matrix(y, preds)
+cm = confusion_matrix(y_val, preds)
 print(cm)
     
-
+ # save the model to disk
+filename = f'model_color.sav'
+pickle.dump(model, open(filename, 'wb'))
 
 
 

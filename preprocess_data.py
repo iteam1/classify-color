@@ -9,7 +9,7 @@ import numpy as np
 NUM_CLUSTER = 5 # number of cluster
 DATA_PATH = sys.argv[1]
 DIM = 240
-OUTPUT = 'test'
+OUTPUT = 'dst'
 
 if not os.path.exists(OUTPUT):
     os.mkdir(OUTPUT)
