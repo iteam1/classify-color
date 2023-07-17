@@ -1,15 +1,15 @@
 '''
-python3 preprocess_data.py DATASET/COLORs
+python3 preprocess_data.py DATASET/UNSEEN
 '''
 import os
 import sys
 import cv2
 import numpy as np
 
-NUM_CLUSTER = 3 # number of cluster
+NUM_CLUSTER = 5 # number of cluster
 DATA_PATH = sys.argv[1]
 DIM = 240
-OUTPUT = 'dst'
+OUTPUT = 'test'
 
 if not os.path.exists(OUTPUT):
     os.mkdir(OUTPUT)
@@ -46,9 +46,7 @@ def preprocess(im):
         qua_DIM = int(DIM*DIM*des)
         l.append(qua_DIM)
         dict.append({'color':centroids[val],'density':des,'quantity':qua,f'quantity_{DIM}':qua_DIM})
-        print(' color:',centroids[val],' density:',des,' quantity:',qua,f' quantity_{DIM}:',qua_DIM)
-    
-    print('sum:',sum(l))
+        # print(' color:',centroids[val],' density:',des,' quantity:',qua,f' quantity_{DIM}:',qua_DIM)
     
     # convert to box
     box = []
@@ -78,6 +76,8 @@ for color in colors:
         
         # init
         PATH = os.path.join(DATA_PATH,color,img)
+        
+        print(idx,' Processing:',PATH)
         pixels = []
         
         # collect pixels
