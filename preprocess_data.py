@@ -1,6 +1,4 @@
-'''
-python3 preprocess_data.py DATASET/COLOR2 dst
-'''
+
 import os
 import sys
 import cv2

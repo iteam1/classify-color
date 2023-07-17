@@ -10,6 +10,7 @@ import numpy as np
 
 NUM_CLUSTER = 5 # number of cluster
 DIM = 256
+THRESH = 0.65
 IMGS_PATH = sys.argv[1]
 
 def preprocess(im):
@@ -76,6 +77,8 @@ if __name__ =="__main__":
     imgs = os.listdir(IMGS_PATH)
     
     for file in imgs:
+        
+        pred = 'UNKNOWN'
     
         # read image
         img = cv2.imread(os.path.join(IMGS_PATH,file))  
@@ -87,5 +90,20 @@ if __name__ =="__main__":
         x = x.flatten()
         x = x.reshape(1,-1)
         
-        pred = loaded_model.predict(x)
-        print(os.path.join(IMGS_PATH,file),labels[str(pred[0])])
+        pred_propa = loaded_model.predict_proba(x)
+        
+        # Get the probability for the first instance in the test set
+        instance_prob = pred_propa[0]
+        
+        idx =np.argmax(instance_prob)
+        
+        # Get the maximum probability
+        max_prob = max(instance_prob)
+
+        # Calculate the confidence score
+        confidence_score = max_prob / sum(instance_prob)
+        
+        if confidence_score > THRESH:
+            pred = labels[str(idx)]
+
+        print(os.path.join(IMGS_PATH,file),pred,labels[str(idx)],'confidence: ',confidence_score)

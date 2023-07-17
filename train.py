@@ -61,7 +61,7 @@ X_val,y_val = shuffle(X_val,y_val)
 # split train val subset
 print('Training')
 # xgb.XGBClassifier(n_estimators = 400, learning_rate = 0.1, max_depth = 3)
-model = xgb.XGBClassifier(max_depth=5)  # DecisionTreeClassifier(max_depth=5)
+model = xgb.XGBClassifier(max_depth=10)  # DecisionTreeClassifier(max_depth=5)
 
 # train model
 model.fit(X_train, y_train)
@@ -76,7 +76,7 @@ cm = confusion_matrix(y, preds)
 print(cm)
     
  # save the model to disk
-filename = f'model_color.sav'
+filename = f'model_classify_color.sav'
 pickle.dump(model, open(filename, 'wb'))
 
 
