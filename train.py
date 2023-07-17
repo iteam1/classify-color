@@ -61,7 +61,7 @@ print('Training')
 # xgb.XGBClassifier(n_estimators = 400, learning_rate = 0.1, max_depth = 3)
 model = xgb.XGBClassifier(max_depth=3)  # DecisionTreeClassifier(max_depth=5)
 
-model.fit(X, y)
+model.fit(X_train, y_train)
 preds = model.predict(X)
 
 # accuracy on X_test

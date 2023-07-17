@@ -1,5 +1,5 @@
 '''
-python3 predict.py DATASET/UNSEEN/BLUE/color_classify_13072023131752_media_6_Blue.jpg
+python3 predict.py DATASET/UNSEEN/PURPLE/color_classify_13072023093538_media_0_Black.jpg
 '''
 import os
 import sys
