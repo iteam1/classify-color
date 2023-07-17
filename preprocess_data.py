@@ -6,7 +6,7 @@ import sys
 import cv2
 import numpy as np
 
-NUM_CLUSTER = 5 # number of cluster
+NUM_CLUSTER = 3 # number of cluster
 DATA_PATH = sys.argv[1]
 DIM = 240
 OUTPUT = 'dst'
