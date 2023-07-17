@@ -9,6 +9,14 @@ __pycache__
 *.rar
 *.zip
 
+# model files
+*.h5
+*.pd
+*.pth
+*.ckpt
+*.pt
+*.sav
+
 #folders
 DATASET
 dst

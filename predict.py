@@ -1,11 +1,16 @@
+'''
+python3 predict.py DATASET/UNSEEN/BLUE/color_classify_13072023131752_media_6_Blue.jpg
+'''
 import os
 import sys
 import cv2
+import json
 import pickle
 import numpy as np
 
 NUM_CLUSTER = 5 # number of cluster
 DIM = 240
+IMG_PATH = sys.argv[1]
 
 def preprocess(im):
     
@@ -20,6 +25,8 @@ def preprocess(im):
         for j in range(W):
             if mask[i,j]:
                 pixels.append(im[i,j])
+    
+    print('total pixels:',H*W,'nonzero pixels:',len(pixels))
     
     # convert to np.float32
     Z = np.float32(np.array(pixels))
@@ -43,8 +50,7 @@ def preprocess(im):
     # convert to box
     box = []
     for m in range(NUM_CLUSTER - 1):
-        current_color = dict
-        [m]['color']
+        current_color = dict[m]['color']
         q = dict[m][f'quantity_{DIM}']
         current_box = [current_color]*q
         box += current_box
@@ -58,7 +64,24 @@ def preprocess(im):
     return box
 
 if __name__ =="__main__":
+    
     # load saved model
     loaded_model = pickle.load(open('model_color.sav','rb'))
     print('Model loaded.')
 
+    # load labels
+    with open('labels.json','r') as f:
+        labels = json.load(f)
+    
+    # read image
+    img = cv2.imread(IMG_PATH)  
+    
+    box = preprocess(img)
+    
+    # predict
+    x = box/255.0
+    x = x.flatten()
+    x = x.reshape(1,-1)
+    
+    pred = loaded_model.predict(x)
+    print(labels[str(pred[0])])

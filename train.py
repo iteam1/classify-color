@@ -48,15 +48,20 @@ print("X: ",X.shape)
 print("y: ",y.shape)
 # shuffle data
 X,y = shuffle(X,y)
-y = le.fit_transform(y)
-X_train,X_val,y_train,y_val = train_test_split(X,y,test_size=0.3,random_state=42)
+
+# encode string class values as integers
+label_encoder = LabelEncoder()
+label_encoder = label_encoder.fit(y)
+y = label_encoder.transform(y)
+
+X_train,X_val,y_train,y_val = train_test_split(X,y,test_size=0.4,random_state=43)
 
 # split train val subset
 print('Training')
 # xgb.XGBClassifier(n_estimators = 400, learning_rate = 0.1, max_depth = 3)
-model = xgb.XGBClassifier(max_depth=5)  #DecisionTreeClassifier(max_depth=5)
+model = xgb.XGBClassifier(max_depth=3)  # DecisionTreeClassifier(max_depth=5)
 
-model.fit(X_train, y_train)
+model.fit(X, y)
 preds = model.predict(X)
 
 # accuracy on X_test

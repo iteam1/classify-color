@@ -1,5 +1,5 @@
 '''
-python3 preprocess_data.py DATASET/UNSEEN
+python3 preprocess_data.py DATASET/COLORs
 '''
 import os
 import sys
@@ -17,6 +17,7 @@ if not os.path.exists(OUTPUT):
 colors = os.listdir(DATA_PATH)
 
 def preprocess(im):
+    pixels = []
     im = cv2.cvtColor(im,cv2.COLOR_BGR2RGB)
     H,W,C = im.shape
     mask = np.all(im != [0,0,0],axis=2)

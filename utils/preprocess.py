@@ -14,6 +14,7 @@ colors = os.listdir(DATA_PATH)
 color = 'BLACK'
 
 def preprocess(im):
+    pixels = []
     im = cv2.cvtColor(im,cv2.COLOR_BGR2RGB)
     H,W,C = im.shape
     mask = np.all(im != [0,0,0],axis=2)
