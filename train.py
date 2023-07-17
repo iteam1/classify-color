@@ -29,7 +29,7 @@ for i,color in enumerate(colors):
     for file in os.listdir(path):
         im = cv2.imread(os.path.join(path,file))
         im = cv2.cvtColor(im,cv2.COLOR_BGR2RGB)
-        im = im/255.0
+        #im = im/255.0
         im = im.flatten()
         X.append(im)
         y.append(i)

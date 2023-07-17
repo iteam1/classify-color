@@ -1,0 +1,7 @@
+python3 utils/rename.py DATASET/COLOR2
+
+python3 preprocess_data.py DATASET/COLOR2 dst
+
+python3 train.py dst
+
+python3 test.py DATASET/UNSEEN/PURPLE

@@ -1,5 +1,5 @@
 '''
-python3 predict.py DATASET/UNSEEN/PURPLE/color_classify_13072023093538_media_0_Black.jpg
+python3 test.py DATASET/UNSEEN/PURPLE
 '''
 import os
 import sys
@@ -10,7 +10,7 @@ import numpy as np
 
 NUM_CLUSTER = 5 # number of cluster
 DIM = 256
-IMG_PATH = sys.argv[1]
+IMGS_PATH = sys.argv[1]
 
 def preprocess(im):
     
@@ -72,16 +72,20 @@ if __name__ =="__main__":
     # load labels
     with open('labels.json','r') as f:
         labels = json.load(f)
+        
+    imgs = os.listdir(IMGS_PATH)
     
-    # read image
-    img = cv2.imread(IMG_PATH)  
+    for file in imgs:
     
-    box = preprocess(img)
-    
-    # predict
-    x = box/255.0
-    x = x.flatten()
-    x = x.reshape(1,-1)
-    
-    pred = loaded_model.predict(x)
-    print(IMG_PATH,labels[str(pred[0])])
+        # read image
+        img = cv2.imread(os.path.join(IMGS_PATH,file))  
+        
+        box = preprocess(img)
+        
+        # predict
+        x = box#/255.0
+        x = x.flatten()
+        x = x.reshape(1,-1)
+        
+        pred = loaded_model.predict(x)
+        print(os.path.join(IMGS_PATH,file),labels[str(pred[0])])
