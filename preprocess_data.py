@@ -1,5 +1,5 @@
 '''
-python3 preprocess_data.py DATASET/COLORs
+python3 preprocess_data.py DATASET/COLOR2 dst
 '''
 import os
 import sys
@@ -8,8 +8,8 @@ import numpy as np
 
 NUM_CLUSTER = 5 # number of cluster
 DATA_PATH = sys.argv[1]
-DIM = 128
-OUTPUT = 'dst'
+OUTPUT = sys.argv[2]
+DIM = 256
 
 if not os.path.exists(OUTPUT):
     os.mkdir(OUTPUT)

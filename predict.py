@@ -9,7 +9,7 @@ import pickle
 import numpy as np
 
 NUM_CLUSTER = 5 # number of cluster
-DIM = 240
+DIM = 256
 IMG_PATH = sys.argv[1]
 
 def preprocess(im):
@@ -84,4 +84,4 @@ if __name__ =="__main__":
     x = x.reshape(1,-1)
     
     pred = loaded_model.predict(x)
-    print(labels[str(pred[0])])
+    print(IMG_PATH,labels[str(pred[0])])
