@@ -8,7 +8,7 @@ import json
 import pickle
 import numpy as np
 
-NUM_CLUSTER = 5 # number of cluster
+NUM_CLUSTER = 3 # number of cluster
 DIM = 256
 THRESH = 0.65
 IMGS_PATH = sys.argv[1]
@@ -67,7 +67,7 @@ def preprocess(im):
 if __name__ =="__main__":
     
     # load saved model
-    loaded_model = pickle.load(open('model_color.sav','rb'))
+    loaded_model = pickle.load(open('model_classify_color.sav','rb'))
     print('Model loaded.')
 
     # load labels
