@@ -1,5 +1,5 @@
 '''
-python3 visualize_data.py DATASET/COLORs
+python3 visualize_data.py data/COLOR2
 '''
 import os
 import sys
