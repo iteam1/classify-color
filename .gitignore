@@ -9,6 +9,20 @@ __pycache__
 *.rar
 *.zip
 
+# model files
+*.h5
+*.pd
+*.pth
+*.ckpt
+*.pt
+*.sav
+
 #folders
 DATASET
+<<<<<<< HEAD
 data
+=======
+dst
+test
+train
+>>>>>>> 4c4c5a44a22809b663b2da9fb64ac50082ccb36d

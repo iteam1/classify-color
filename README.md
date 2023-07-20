@@ -4,6 +4,10 @@ predict color name from RGB value: `python3 classify_color.py data/black.jpg`
 
 # references
 
+https://machinelearningmastery.com/xgboost-for-imbalanced-classification/
+
+https://scikit-learn.org/stable/modules/tree.html
+
 http://www.rgbtool.com/
 
 https://www.youtube.com/watch?v=MmBBVTniWFg
