@@ -1,6 +1,3 @@
-'''
-python3 train.py dst
-'''
 import os
 import sys
 import cv2
@@ -37,7 +34,7 @@ for i,color in enumerate(colors):
 # export labels
 with open('labels.json','w') as f:
     json.dump(labels,f)
-    
+
 X = np.array(X)
 y = np.array(y)
 
@@ -74,10 +71,7 @@ print('Accuracy:',accuracy_score(y, preds))
 # creating a confusion matrix
 cm = confusion_matrix(y, preds)
 print(cm)
-    
+
  # save the model to disk
 filename = f'model_classify_color.sav'
 pickle.dump(model, open(filename, 'wb'))
-
-
-

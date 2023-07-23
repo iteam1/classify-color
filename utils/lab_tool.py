@@ -1,5 +1,5 @@
 '''
-HSV parser
+Lab parser
 Support function horizontal stack same size image
 '''
 import cv2
@@ -12,8 +12,8 @@ def empty(i):
 def on_trackbar(val):
     global img,hsv,res
     # get H,S,V value from trackbar
-    hue_min = cv2.getTrackbarPos("Hue Min", "TrackedBars")
-    hue_max = cv2.getTrackbarPos("Hue Max", "TrackedBars")
+    hue_min = cv2.getTrackbarPos("Light Min", "TrackedBars")
+    hue_max = cv2.getTrackbarPos("Light Max", "TrackedBars")
     sat_min = cv2.getTrackbarPos("Sat Min", "TrackedBars")
     sat_max = cv2.getTrackbarPos("Sat Max", "TrackedBars")
     val_min = cv2.getTrackbarPos("Val Min", "TrackedBars")

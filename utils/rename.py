@@ -1,5 +1,5 @@
 '''
-python3 utils/rename.py DATASET/COLOR2
+python3 utils/rename.py data/COLOR6
 '''
 import time
 import os

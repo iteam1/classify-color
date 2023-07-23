@@ -1,5 +1,5 @@
 '''
-python3 utils/dominant_color.py assets/black.jpg
+Parsing dominant color tool
 '''
 import os
 import sys

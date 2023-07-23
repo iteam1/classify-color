@@ -1,6 +1,13 @@
 # classify-color
 
-predict color name from RGB value: `python3 classify_color.py data/black.jpg`
+color classification study
+
+- [solution1: Kmeans + XGBoost](soln1)
+
+- [solution2: Kmeans MLPClassifier]()
+
+- [solution3: Similar color]()
+
 
 # references
 

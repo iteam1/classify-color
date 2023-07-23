@@ -7,7 +7,7 @@ import numpy as np
 NUM_CLUSTER = 3 # number of cluster
 DATA_PATH = sys.argv[1]
 OUTPUT = sys.argv[2]
-DIM = 256
+DIM = 224
 
 if not os.path.exists(OUTPUT):
     os.mkdir(OUTPUT)
