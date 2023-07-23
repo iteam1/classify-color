@@ -18,11 +18,11 @@ __pycache__
 *.sav
 
 #folders
-DATASET
-<<<<<<< HEAD
 data
-=======
+dataset
+debug
+temp
 dst
+src
 test
 train
->>>>>>> 4c4c5a44a22809b663b2da9fb64ac50082ccb36d
