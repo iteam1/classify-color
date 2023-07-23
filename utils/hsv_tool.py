@@ -1,6 +1,7 @@
 '''
 HSV parser
 Support function horizontal stack same size image
+python3 utils/hsv_tool.py data/COLORs/RED/RED_1.jpg
 '''
 import cv2
 import sys
@@ -10,7 +11,7 @@ def empty(i):
     pass
 
 def on_trackbar(val):
-    global img,hsv,res
+    global img,res
     # get H,S,V value from trackbar
     hue_min = cv2.getTrackbarPos("Hue Min", "TrackedBars")
     hue_max = cv2.getTrackbarPos("Hue Max", "TrackedBars")
@@ -22,13 +23,13 @@ def on_trackbar(val):
     # get current mask of HSV range
     lower = np.array([hue_min, sat_min, val_min])
     upper = np.array([hue_max, sat_max, val_max])
-    mask = cv2.inRange(hsv, lower, upper)
-    res = cv2.bitwise_and(img,img,mask=mask)
+    mask = cv2.inRange(res, lower, upper)
+    roi = cv2.bitwise_and(img,img,mask=mask)
     # reshape the image
-    h,w,c = res.shape
+    h,w,c = roi.shape
     h = int(h*scale/100)
     w = int(w*scale/100)
-    resized = cv2.resize(res,(0,0),fx=scale/100,fy=scale/100)
+    resized = cv2.resize(roi,(0,0),fx=scale/100,fy=scale/100)
     # display result
     cv2.imshow("HSV",resized)
 
@@ -37,7 +38,7 @@ img_path = sys.argv[1]
 img = cv2.imread(img_path)
 
 # convert to hsv space
-hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+res = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
 # create window
 cv2.namedWindow("TrackedBars")
