@@ -4,24 +4,24 @@ predict color name from RGB value: `python3 classify_color.py data/black.jpg`
 
 # references
 
-https://machinelearningmastery.com/xgboost-for-imbalanced-classification/
+[rgbtool](http://www.rgbtool.com/)
 
-https://scikit-learn.org/stable/modules/tree.html
+[Color models and color spaces](https://programmingdesignsystems.com/color/color-models-and-color-spaces/index.html)
 
-http://www.rgbtool.com/
+[Color Spaces in Computer Vision - RGB, HSV and LAB (theory + code)](https://www.youtube.com/watch?v=MmBBVTniWFg)
 
-https://www.youtube.com/watch?v=MmBBVTniWFg
+[color_recognizer](https://github.com/michtesar/color_recognizer)
 
-https://stackoverflow.com/questions/34488409/improving-accuracy-of-findcontour-in-opencv-python
+[RGB-Color-Classifier-with-Deep-Learning-using-Keras-and-Tensorflow](https://github.com/AjinkyaChavan9/RGB-Color-Classifier-with-Deep-Learning-using-Keras-and-Tensorflow/tree/master)
 
-https://programmingdesignsystems.com/color/color-models-and-color-spaces/index.html
+[Vehicle-Detection-And-Color-Classification](https://github.com/SKsaqlain/Vehicle-Detection-And-Color-Classification)
 
-https://github.com/SKsaqlain/Vehicle-Detection-And-Color-Classification
+[Similar color detection in Python](https://stackoverflow.com/questions/44428315/similar-color-detection-in-python)
 
-https://github.com/michtesar/color_recognizer
+[Color Identification using Machine Learning](https://github.com/kb22/Color-Identification-using-Machine-Learning/blob/master/Color%20Identification%20using%20Machine%20Learning.ipynb)
 
-https://github.com/AjinkyaChavan9/RGB-Color-Classifier-with-Deep-Learning-using-Keras-and-Tensorflow/tree/master
+[Improving accuracy of findContour in OpenCV Python](https://stackoverflow.com/questions/34488409/improving-accuracy-of-findcontour-in-opencv-python)
 
-https://stackoverflow.com/questions/44428315/similar-color-detection-in-python
+[How to Configure XGBoost for Imbalanced Classification](https://machinelearningmastery.com/xgboost-for-imbalanced-classification/)
 
-https://github.com/kb22/Color-Identification-using-Machine-Learning/blob/master/Color%20Identification%20using%20Machine%20Learning.ipynb
+[1.10. Decision Trees scikit-learn](https://scikit-learn.org/stable/modules/tree.html)
