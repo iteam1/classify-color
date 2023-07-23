@@ -1,5 +1,5 @@
 '''
-python3 utils/preprocess.py
+python3 utils/preprocess.py data/COLOR6/BLUE/BLUE47_0.jpg
 '''
 import os
 import sys
@@ -9,6 +9,7 @@ import numpy as np
 NUM_CLUSTER = 3 # number of cluster
 DATA_PATH = sys.argv[1]
 DIM = 224
+PATH = sys.argv[1]
 
 def preprocess(im):
     pixels = []
@@ -61,20 +62,20 @@ def preprocess(im):
 
     return box
 
-if __name__ == "__m"
+if __name__ == "__main__":
 
-# list of nonzero pixel
-pixels = []
+    # list of nonzero pixel
+    pixels = []
 
-# collect pixels
-im = cv2.imread(PATH)
+    # collect pixels
+    im = cv2.imread(PATH)
 
-box = preprocess(im)
+    box = preprocess(im)
 
-cv2.imshow('box',box)
+    cv2.imshow('box',cv2.cvtColor(box,cv2.COLOR_RGB2BGR))
 
-k = cv2.waitKey()
+    k = cv2.waitKey()
 
-cv2.destroyAllWindows()
+    cv2.destroyAllWindows()
 
-cv2.imwrite('assets/box.png',cv2.cvtColor(box,cv2.COLOR_RGB2BGR))
+    cv2.imwrite('assets/box.png',cv2.cvtColor(box,cv2.COLOR_RGB2BGR))
