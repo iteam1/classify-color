@@ -13,7 +13,7 @@ IMGS_PATH = sys.argv[1]
 def preprocess(im):
 
     pixels = []
-
+soln1/
     im = cv2.cvtColor(im,cv2.COLOR_BGR2RGB)
     H,W,C = im.shape
     mask = np.all(im != [0,0,0],axis=2)
@@ -64,11 +64,11 @@ def preprocess(im):
 if __name__ =="__main__":
 
     # load saved model
-    loaded_model = pickle.load(open('model_classify_color.sav','rb'))
+    loaded_model = pickle.load(open('soln1/model_classify_color.sav','rb'))
     print('Model loaded.')
 
     # load labels
-    with open('labels.json','r') as f:
+    with open('soln1/labels.json','r') as f:
         labels = json.load(f)
 
     imgs = os.listdir(IMGS_PATH)
