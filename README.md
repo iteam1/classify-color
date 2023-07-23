@@ -4,12 +4,6 @@ predict color name from RGB value: `python3 classify_color.py data/black.jpg`
 
 # references
 
-[rgbtool](http://www.rgbtool.com/)
-
-[Color models and color spaces](https://programmingdesignsystems.com/color/color-models-and-color-spaces/index.html)
-
-[Color Spaces in Computer Vision - RGB, HSV and LAB (theory + code)](https://www.youtube.com/watch?v=MmBBVTniWFg)
-
 [color_recognizer](https://github.com/michtesar/color_recognizer)
 
 [RGB-Color-Classifier-with-Deep-Learning-using-Keras-and-Tensorflow](https://github.com/AjinkyaChavan9/RGB-Color-Classifier-with-Deep-Learning-using-Keras-and-Tensorflow/tree/master)
@@ -25,3 +19,9 @@ predict color name from RGB value: `python3 classify_color.py data/black.jpg`
 [How to Configure XGBoost for Imbalanced Classification](https://machinelearningmastery.com/xgboost-for-imbalanced-classification/)
 
 [1.10. Decision Trees scikit-learn](https://scikit-learn.org/stable/modules/tree.html)
+
+[rgbtool](http://www.rgbtool.com/)
+
+[Color models and color spaces](https://programmingdesignsystems.com/color/color-models-and-color-spaces/index.html)
+
+[Color Spaces in Computer Vision - RGB, HSV and LAB (theory + code)](https://www.youtube.com/watch?v=MmBBVTniWFg)
