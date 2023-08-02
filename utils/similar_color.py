@@ -1,5 +1,5 @@
 '''
-python3 utils/similar_color.py data/COLOR2/BLACK/BLACK49_0.jpg
+python3 utils/similar_color.py assets/npnrv.png
 '''
 import sys
 import cv2
@@ -7,7 +7,7 @@ import numpy as np
 from skimage import io
 from skimage.color import rgb2lab, deltaE_cie76
 
-IMG_PATH = 'https://i.stack.imgur.com/npnrv.png' #sys.argv[1]
+IMG_PATH = sys.argv[1]
 rgb = io.imread(IMG_PATH)
 lab = rgb2lab(rgb)
 

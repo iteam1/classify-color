@@ -1,7 +1,7 @@
 '''
 Lab parser
 Support function horizontal stack same size image
-python3 utils/lab_tool.py data/COLORs/BLACK/BLACK_0.jpg
+python3 utils/lab_tool.py assets/npnrv.png
 '''
 import cv2
 import sys
