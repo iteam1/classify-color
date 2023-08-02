@@ -8,8 +8,12 @@ color classification study
 
 - [solution3: Similar color]()
 
+- [solution4: Deep learning layer to extract color]()
+
 
 # references
+
+[Color_Classification_using_Color_Descriptors](https://github.com/metinmertakcay/Color_Classification_using_Color_Descriptors/tree/master)
 
 [color_recognizer](https://github.com/michtesar/color_recognizer)
 

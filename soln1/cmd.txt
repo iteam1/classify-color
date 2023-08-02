@@ -1,11 +1,11 @@
 #  step1 rename files of the dataset:
-python3 utils/rename.py data/COLOR6
+python3 utils/rename.py data/COLOR2
 
 # step2 preprocess dataset:
-python3 soln1/preprocess_data.py data/COLOR6 dst
+python3 soln1/preprocess_data.py data/COLOR2 dst
 
 # step3 train model:
 python3 soln1/train.py dst
 
 # step 4 test model
-python3 soln1/test.py data/COLORs/RED
+python3 soln1/test.py data/17072023
