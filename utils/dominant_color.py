@@ -1,5 +1,6 @@
 '''
 Parsing dominant color tool
+python3 utils/dominant_color.py assets/red.jpg
 '''
 import os
 import sys
