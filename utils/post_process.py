@@ -8,6 +8,7 @@ import numpy as np
 
 IMG_PATH = sys.argv[1]
 DIM = 224
+NUM_CLUSTER = 3
 
 def myfunction():
   return 0.1
@@ -31,6 +32,17 @@ if __name__ == "__main__":
         for j in range(W):
             if mask[i,j]:
                 pixels.append(img_rgb[i,j])
+                
+    # clustering pixels
+
+    Z = np.float32(np.array(pixels))     # convert to np.float32
+    # define criteria, number of clusters and apply kmeans
+    criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
+    # kmeans
+    ret, labels, centroids = cv2.kmeans(Z, NUM_CLUSTER, None, criteria, 10, cv2.KMEANS_PP_CENTERS)
+    centroids = np.uint8(centroids)
+    
+    print(centroids)
 
     # shuffle pixels
     random.shuffle(pixels)
