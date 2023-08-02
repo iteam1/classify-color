@@ -19,6 +19,7 @@ X = []
 y = []
 
 labels = {}
+
 # collect data
 for i,color in enumerate(colors):
     labels[i] = color

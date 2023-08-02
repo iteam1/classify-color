@@ -16,13 +16,20 @@ __pycache__
 *.ckpt
 *.pt
 *.sav
+*.pb
+*.pbtxt
+*.onnx
+*.tflite
+*.mlmodel
+*.hdf5
+*.npy
 
 #folders
 data
-dataset
-debug
-temp
-dst
-src
 test
 train
+dataset
+debug
+tmp
+dst
+src

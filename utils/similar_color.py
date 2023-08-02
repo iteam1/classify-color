@@ -1,12 +1,14 @@
 '''
-python3 utils/similar_color.py
+python3 utils/similar_color.py data/COLOR2/BLACK/BLACK49_0.jpg
 '''
+import sys
 import cv2
 import numpy as np
 from skimage import io
 from skimage.color import rgb2lab, deltaE_cie76
 
-rgb = io.imread('https://i.stack.imgur.com/npnrv.png')
+IMG_PATH = 'https://i.stack.imgur.com/npnrv.png' #sys.argv[1]
+rgb = io.imread(IMG_PATH)
 lab = rgb2lab(rgb)
 
 green = [0, 160, 0]

@@ -8,7 +8,7 @@ color classification study
 
 - [solution3: Similar color]()
 
-- [solution4: Deep learning layer to extract color]()
+- [solution4: Deep learning layer to extract color](soln4)
 
 
 # references
